@@ -1,0 +1,65 @@
+/* Add here all your CSS customizations */
+
+.status {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.selesai {
+  background: #008000;
+}
+
+.onprogress {
+  background: #FFFF00;
+}
+
+.cancel {
+  background: #FF0000;
+}
+
+.featuretitle{
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+    
+}
+.featuredetail{
+    
+}
+
+.featurewidth{
+    width: 75%
+}
+
+.releasewidth{
+    width: 20%;
+}
+
+.featurerequest{
+    overflow: hidden; 
+    overflow-wrap: break-word; 
+    resize: none; 
+    height: 150px;
+}
+
+.statusbox{
+    width: 100%;
+    border-color: transparent;
+}
+
+.passworduser{
+    background-color: transparent; 
+    border: 0px;
+}
+
+.userID{
+    padding: 10px;
+}
+
+.textstatus{
+    padding: 3px;
+    font-weight: 700;
+}
