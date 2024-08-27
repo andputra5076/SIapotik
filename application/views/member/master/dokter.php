@@ -84,6 +84,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <input type="text" name="kode_dokter" class="form-control" required />
                             </div>
                         </div>
+                        <!-- Username field -->
+                        <div class="form-group mt-lg username">
+                            <label class="col-sm-3 control-label">Username<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="username" class="form-control" required />
+                            </div>
+                        </div>
+                        <!-- Password field -->
+                        <div class="form-group mt-lg password">
+                            <label class="col-sm-3 control-label">Password<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="password" name="password" class="form-control" required />
+                            </div>
+                        </div>
                         <div class="form-group mt-lg nama_dokter">
                             <label class="col-sm-3 control-label">Nama dokter<span class="required">*</span></label>
                             <div class="col-sm-9">
@@ -179,6 +193,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <input type="text" name="kode_dokter" id="kode_dokter" class="form-control" required />
                             </div>
                         </div>
+                        <!-- Username field -->
+                        <div class="form-group mt-lg username">
+                            <label class="col-sm-3 control-label">Username<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="username" id="username" class="form-control" required />
+                            </div>
+                        </div>
+                        <!-- Password field -->
+                        <div class="form-group mt-lg password">
+                            <label class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" name="password" class="form-control" />
+                            </div>
+                        </div>
                         <div class="form-group mt-lg nama_dokter">
                             <label class="col-sm-3 control-label">Nama dokter<span class="required">*</span></label>
                             <div class="col-sm-9">
@@ -219,7 +247,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="form-group spesialis">
                             <label class="col-sm-3 control-label">Spesialis<span class="required">*</span></label>
                             <div class="col-sm-9">
-                            <input type="text" name="spesialis" id="spesialis" class="form-control" required />
+                                <input type="text" name="spesialis" id="spesialis" class="form-control" required />
                             </div>
                         </div>
                     </div>
@@ -374,6 +402,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     $.each(response, function(i, item) {
                         datarow += '<table class="table table-bordered table-hover table-striped dataTable no-footer">';
                         datarow += "<tr><td>Kode Dokter</td><td>: <b>" + item.kode_dokter + "</b></td></tr>";
+                        datarow += "<tr><td>Username</td><td>: <b>" + item.username + "</b></td></tr>";
+                        datarow += "<tr><td>Password</td><td>: <b></b></td></tr>";
                         datarow += "<tr><td>Nama</td><td>: " + item.nama_dokter + "</td></tr>";
                         datarow += "<tr><td>Jenis Kelamin</td><td>: " + item.jenis_kelamin + "</td></tr>";
                         datarow += "<tr><td>Telepon</td><td>: " + item.telepon + "</td></tr>";
@@ -404,6 +434,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         document.getElementById("spesialis").setAttribute('value', item.spesialis);
                         document.getElementById("telepon").setAttribute('value', item.telepon);
                         document.getElementById("kode_dokter").setAttribute('value', item.kode_dokter);
+                        document.getElementById("username").setAttribute('value', item.username);
                         document.getElementById("alamat").value = item.alamat;
                         if (item.jenis_kelamin == 'laki-laki') {
                             document.getElementById("laki-laki").checked = true;

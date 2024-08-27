@@ -2,8 +2,8 @@
 class Master_model extends CI_Model{   
       
     // datatable dokter start
-    var $column_search_dokter = array('kode_dokter','nama_dokter','jenis_kelamin','handphone','telepon'); 
-    var $column_order_dokter = array(null,'kode_dokter', 'nama_dokter','jenis_kelamin','handphone','telepon');
+    var $column_search_dokter = array('kode_dokter', 'username', 'alamat', 'nama_dokter','jenis_kelamin','handphone','telepon'); 
+    var $column_order_dokter = array(null,'kode_dokter', 'username', 'alamat', 'nama_dokter','jenis_kelamin','handphone','telepon');
     var $order_dokter = array('waktu_update' => 'DESC');
     private function _get_query_dokter()
     { 
@@ -77,6 +77,16 @@ class Master_model extends CI_Model{
             'field' => 'kode_dokter',
             'label' => 'Kode Dokter',
             'rules' => 'is_unique[master_dokter.kode_dokter]|required',
+            ] , 
+            [
+            'field' => 'username',
+            'label' => 'Username',
+            'rules' => 'is_unique[master_dokter.username]|required',
+            ] , 
+            [
+            'field' => 'password',
+            'label' => 'Password',
+            'rules' => 'is_unique[master_dokter.password]|required',
             ] 
         ];
     } 
@@ -92,12 +102,19 @@ class Master_model extends CI_Model{
             'field' => 'kode_dokter',
             'label' => 'Kode Dokter',
             'rules' => 'required',
-            ] 
+            ] ,
+            [
+            'field' => 'username',
+            'label' => 'Username',
+            'rules' => 'required',
+            ]
         ];
     } 
     function simpandatadokter(){   
         $post = $this->input->post();   
         $array = array(
+            'username'=>$post["username"], 
+            'password' => md5($post["password"]), 
             'nama_dokter'=>$post["nama_dokter"], 
             'jenis_kelamin'=>$post["jenis_kelamin"], 
             'alamat'=>$post["alamat"],  
@@ -111,6 +128,8 @@ class Master_model extends CI_Model{
     public function updatedatadokter()
     {
         $post = $this->input->post();
+        $this->username = $post["username"];
+        $this->password = md5($post["password"]);
         $this->nama_dokter = $post["nama_dokter"];
         $this->jenis_kelamin = $post["jenis_kelamin"];
         $this->alamat = $post["alamat"];

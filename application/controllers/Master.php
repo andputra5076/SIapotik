@@ -89,6 +89,8 @@ class Master extends CI_Controller {
         cekajax(); 
         $query = $this->db->get_where('master_dokter', array('kode_dokter' => $this->input->get("id")),1);
         $result = array(  
+            "username" => $this->security->xss_clean($query->row()->username),
+            "password" => $this->security->xss_clean($query->row()->password),
             "nama_dokter" => $this->security->xss_clean($query->row()->nama_dokter),
             "jenis_kelamin" => $this->security->xss_clean($query->row()->jenis_kelamin),
             "alamat" => $this->security->xss_clean($query->row()->alamat),
@@ -117,8 +119,8 @@ class Master extends CI_Controller {
             }
         }
         $data['token'] = $this->security->get_csrf_hash();
-        echo json_encode($data); 
-    } 
+        echo json_encode($data);
+    }
     public function dokterhapus(){ 
         cekajax(); 
         $hapus = $this->master_model;

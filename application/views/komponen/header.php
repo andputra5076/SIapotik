@@ -13,9 +13,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <div class="header-right">
         <ul class="notifications">
+            <?php
+            // Ambil kategori pengguna dari session
+            $kategori = $this->session->userdata('nama_kategori');
+            ?>
+
             <li>
-                <a href="<?php echo base_url() ?>penjualan/kasir" type="button" class="mr-2 mb-xs mt-xs mr-xs btn btn-primary"><i class="fa  fa-shopping-cart"></i> Point Of Sales</a>
+                <?php if ($kategori === 'Kasir' || $kategori === 'Manager'): ?>
+                    <a href="<?php echo base_url(); ?>penjualan/kasir" type="button" class="mr-2 mb-xs mt-xs mr-xs btn btn-primary">
+                        <i class="fa fa-shopping-cart"></i> Point Of Sales
+                    </a>
+                <?php endif; ?>
             </li>
+
         </ul>
 
 
@@ -23,7 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div id="userbox" class="userbox">
             <a href="#" data-toggle="dropdown">
                 <div class="profile-info" style="min-width:60px;">
-                    <span class="name"><?php echo $this->session->userdata('nama_admin'); ?></span>
+                    <span class="name"><?php echo $this->session->userdata('nama_dokter'); ?><?php echo $this->session->userdata('nama_admin'); ?></span>
                     <span class="role"><?php echo $this->session->userdata('nama_kategori'); ?></span>
                 </div>
                 <i class="fa custom-caret"></i>
